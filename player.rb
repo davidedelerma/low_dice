@@ -15,13 +15,13 @@ class Player
     roll = @dice.roll
     @rolls_array << roll
     end
-
+    return @rolls_array
   end
 
   def sum
      sum = 0
-     for x in @rolls_array
-       sum += x
+     for count in @rolls_array
+       sum += count
      end
      return sum
   end
