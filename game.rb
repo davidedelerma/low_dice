@@ -6,6 +6,7 @@ class Game
     @players=players
     @current_player = players[0]
     @winner=nil
+    @hash_results=Hash.new
 
   end
 
@@ -24,23 +25,11 @@ class Game
   end
 
   def create_hash
-    hash_results=Hash.new
     for player in @players
-      hash_results[player.name]=player.sum
+      @hash_results[player.name]=player.sum
     end
-    return hash_results
+    return @hash_results
   end
-  # def winner_to_array
-  #   results_array = []
-
-  #   for player in @players
-  #     player.sum
-  #     results_array.push
-  #   end
-  #   winner = results_array.min
-  #   for min in results_array
-  #     if min = 
-  # end
 
 
 end
