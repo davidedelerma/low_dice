@@ -12,7 +12,7 @@ class Viewer
   end
 
   def show_update(entry)
-    puts "#{entry.player.name} rolled #{entry.player.turn}"
+    puts "#{entry[:player]} rolled #{entry[:rolls]}"
 
   end
 

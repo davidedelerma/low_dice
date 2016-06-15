@@ -1,13 +1,14 @@
 require "pry-byebug"
 class Game
   
-  attr_reader :current_player, :players, :winner
+  attr_reader :current_player, :players, :winner, :log
 
   def initialize (players)
     @players=players
     @current_player = players[0]
     @winner=[]
     @hash_results=Hash.new
+    @log = []
 
   end
 
@@ -15,14 +16,15 @@ class Game
     return @players.count
   end
 
-  def update_current_player
+  def update_current_player()
     @current_player=@players.rotate![0]
   end
 
   def next_turn
-    @current_player.turn
+    rolls = @current_player.turn
     @current_player.sum
-    update_current_player
+    @log.push( { player: @current_player.name, rolls: rolls } )
+    update_current_player()
   end
 
   def create_hash

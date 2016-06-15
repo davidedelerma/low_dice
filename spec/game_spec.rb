@@ -32,7 +32,11 @@ class TestGame < Minitest::Test
     @game.next_turn
     assert_equal(5,@player1.rolls_array.count)
     assert_equal("Ren",@game.current_player.name)
+  end
 
+  def test_next_turn_produce_log
+    @game.next_turn
+    assert_equal( "Dav", @game.log.first[:player] )
   end
 
   def test_create_results_hash

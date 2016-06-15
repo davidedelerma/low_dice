@@ -1,6 +1,6 @@
 require_relative "game"
 require_relative "dice"
-require_relative "player"
+require_relative "player" 
 require_relative "viewer"
 
 class LowDice
@@ -24,7 +24,9 @@ class LowDice
 
   def run()
     for i in (1..(@players.count*5))
+      @viewer.start(@game.current_player.name)
       @game.next_turn
+      @viewer.show_update( @game.log.last() )
     end
     @game.create_hash
     @game.find_winner
