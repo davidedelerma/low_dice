@@ -1,11 +1,11 @@
 class Dice
 
   def initialize
-    @rolls = (1..6).to_a
+    @rolls = (1..6)
   end
 
   def roll
-    return @rolls.sample
+    return value=rand(@rolls)
   end
   
 end
