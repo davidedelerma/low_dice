@@ -1,7 +1,7 @@
 require "pry-byebug"
 class Game
   
-  attr_reader :current_player, :players
+  attr_reader :current_player, :players, :winner
 
   def initialize (players)
     @players=players
