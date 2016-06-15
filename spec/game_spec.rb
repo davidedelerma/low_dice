@@ -52,22 +52,22 @@ class TestGame < Minitest::Test
       assert_equal(expected_result,game.create_hash)
   end
 
-  # def test_find_winner
+  def test_find_winner
 
-  #   dav=Player.new("Dav",Dice.new)
-  #   ren=Player.new("Ren",Dice.new)
-  #   bri=Player.new("Bri",Dice.new)
-  #   dav.rolls_array.push(1, 1, 1, 1, 2)
-  #   ren.rolls_array.push(1, 1, 1, 1, 3)
-  #   bri.rolls_array.push(1, 1, 1, 1, 4)
+    dav=Player.new("Dav",Dice.new)
+    ren=Player.new("Ren",Dice.new)
+    bri=Player.new("Bri",Dice.new)
+    dav.rolls_array.push(1, 1, 1, 1, 2)
+    ren.rolls_array.push(1, 1, 1, 1, 3)
+    bri.rolls_array.push(1, 1, 1, 1, 4)
 
-  #   players_new=[dav, ren, bri]
+    players_new=[dav, ren, bri]
 
-  #   game=Game.new(players_new)
-  #   game.create_hash
-  #   assert_equal("Dav",game.find_winner)
+    game=Game.new(players_new)
+    game.create_hash
+    assert_equal(["Dav"],game.find_winner)
 
-  # end
+  end
 
 
 end

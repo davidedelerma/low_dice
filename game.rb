@@ -1,3 +1,4 @@
+require "pry-byebug"
 class Game
   
   attr_reader :current_player, :players
@@ -5,7 +6,7 @@ class Game
   def initialize (players)
     @players=players
     @current_player = players[0]
-    @winner=nil
+    @winner=[]
     @hash_results=Hash.new
 
   end
@@ -29,6 +30,18 @@ class Game
       @hash_results[player.name]=player.sum
     end
     return @hash_results
+  end
+
+  def find_winner
+    win_score=@hash_results.values.min
+
+    for score in @hash_results
+      #binding.pry
+      if (score[1] == win_score)
+        return @winner << score[0]
+      #  puts "#{score[0]} wins!"
+      end 
+    end
   end
 
 
