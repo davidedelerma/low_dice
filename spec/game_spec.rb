@@ -12,7 +12,7 @@ class TestGame < Minitest::Test
 
     players=[@player1, @player2, @player3]
 
-    @game=Game.new(players,4)
+    @game=Game.new(players)
   end
 
   def test_count_players
@@ -35,16 +35,26 @@ class TestGame < Minitest::Test
 
   end
 
-  # def test_who_is_winner
-  #   player1=Player.new("Dav",Dice.new)
-  #   player2=Player.new("Ren",Dice.new)
-  #   player3=Player.new("Bri",Dice.new)
-  #   res1=player1.rolls_array.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2)
-  #   res2=player2.rolls_array.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3)
-  #   res3=player3.rolls_array.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4)
+  def test_create_results_hash
+      dav=Player.new("Dav",Dice.new)
+      ren=Player.new("Ren",Dice.new)
+      bri=Player.new("Bri",Dice.new)
+      dav.rolls_array.push(1, 1, 1, 1, 2)
+      ren.rolls_array.push(1, 1, 1, 1, 3)
+      bri.rolls_array.push(1, 1, 1, 1, 4)
 
-  #   winner=@game.winner([res1,res2,res3])
-  #   assert_equal("Dav",winner)
+      players_new=[dav, ren, bri]
+
+      game=Game.new(players_new)
+
+      expected_result={dav.name => 6, ren.name => 7, bri.name => 8}
+
+      assert_equal(expected_result,game.create_hash)
+  end
+
+  # def test_find_winner
 
   # end
+
+
 end
