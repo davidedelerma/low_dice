@@ -12,7 +12,7 @@ class Viewer
   end
 
   def show_update(entry)
-    puts "#{entry[:player]} rolled #{entry[:rolls]}"
+    puts "#{entry[:player]} rolled #{entry[:rolls][-5..-1]}; total score so far: #{entry[:total_sum]}"
 
   end
 

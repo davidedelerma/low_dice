@@ -22,8 +22,8 @@ class Game
 
   def next_turn
     rolls = @current_player.turn
-    @current_player.sum
-    @log.push( { player: @current_player.name, rolls: rolls } )
+    sum=@current_player.sum
+    @log.push( { player: @current_player.name, rolls: rolls, total_sum: sum  } )
     update_current_player()
   end
 
